@@ -10,6 +10,7 @@ import { Tusegundo } from '../tusegundo';
 export class TusegundoListComponent implements OnInit {
 
   tusegundos : Array<Tusegundo>=[];
+  tusegundos_count: any;
 
   constructor( private tusegundoService:TusegundoService) { }
 
@@ -19,7 +20,14 @@ export class TusegundoListComponent implements OnInit {
   getTusegundos(): void {
     this.tusegundoService.getTusegundos().subscribe((tusegundos) => 
     {this.tusegundos = tusegundos
+    this.tusegundos_count = this.tusegundos.reduce((acc: any, obj: any) => {
+        if (acc[obj.marca]) {
+          acc[obj.marca] += 1;
+        } else {
+          acc[obj.marca] = 1;
+        }
+        return acc;
+      },{});
   });
   }
-
 }

@@ -1,25 +1,30 @@
 <div class="container">
   <div class="row justify-content-center">
-    <img class="card-img-top" src="\assets\Logo.png"/>
     <h1>Tu segundazo</h1>
-    <table class="table table-bordered">
-      <thead class="thead-dark">
-        <tr>
-        <th scope="col">#</th>
-        <th scope="col">Marca</th>
-        <th scope="col">Linea</th>
-        <th scope="col">Modelo</th>
+    <hr/>
+    <img class="card-img-top" src="\assets\Logo.png"/>
+    <hr/>
+    <table class="table table-sm">
+      <thead class="table table-dark">
+        <tr class="d-flex">
+        <th class="col-1">#</th>
+        <th class="col-2">Marca</th>
+        <th class="col-2">Linea</th>
+        <th class="col-2">Modelo</th>
       </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let tusegundo of tusegundos">
-          <th scope="row">{{tusegundo.id}}</th>
-          <td >{{tusegundo.marca}}</td>
-          <td >{{tusegundo.linea}}</td>
-          <td >{{tusegundo.modelo}}</td>
+        <tr class="d-flex" *ngFor="let tusegundo of tusegundos">
+          <th class="col-1">{{tusegundo.id}}</th>
+          <td class="col-2">{{tusegundo.marca}}</td>
+          <td class="col-2">{{tusegundo.linea}}</td>
+          <td class="col-2">{{tusegundo.modelo}}</td>
         </tr>
     </tbody>
   </table>
+  <div *ngFor="let marca of tusegundos_count | keyvalue">
+    <a>Total {{marca.key}}: {{marca.value}}</a>
+  </div>
 
   </div>
 
